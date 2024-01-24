@@ -96,15 +96,13 @@ public class Runigram {
 	 * Returns an image which is the vertically flipped version of the given image. 
 	 */
 	public static Color[][] flippedVertically(Color[][] image){
-		Color[][] flipped = new Color[image.length][image[0].length];
-		for (int i=0; i<image.length;i++)
-		{
-			for(int j=0;j<image[0].length;j++)
-			{
-				flipped[i][j]=image[image.length-1-i][j];
+		Color [][]  flippedVertical = new Color[image.length][image[0].length];
+		for (int i = 0; i <  flippedVertical.length; i++){
+			for (int j = 0; j <  flippedVertical[0].length; j++){	
+				flippedVertical[i][j] = image [image.length-1-i][j];
 			}
 		}
-		return flipped;
+		return  flippedVertical;
 	}
 	
 	// Computes the luminance of the RGB values of the given pixel, using the formula 
