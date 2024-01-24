@@ -233,3 +233,4 @@ public class Runigram {
 		StdDraw.show();
 	}
 }
+
