@@ -190,13 +190,15 @@ public class Runigram {
 	 * of the source image.
 	 */
 	public static void morph(Color[][] source, Color[][] target, int n) {
-		Color[][]image= new Color[source.length][source[0].length];
-		Color[][] targetFixed = scaled(target, source[0].length, source.length);
-		for(int i=0; i<=n;i++)
+		Color [][] morph = new Color[source.length][source[0].length];
+		Color[][] NewTarget = scaled(target, source.length, source[0].length);
+		
+		for (int i = 0; i <= n; i++)
 		{
-			double alpha =((double)(n-i))/n;
-			image =blend(source,targetFixed, alpha);
-			display(image);
+			double alpha = (double)((double)(n-i)/(double)n);
+			morph = blend (source, NewTarget, alpha);
+			//setCanvas(morph);
+			display(morph);
 			StdDraw.pause(500);
 		}
 	}
