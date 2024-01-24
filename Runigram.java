@@ -16,10 +16,12 @@ public class Runigram {
 		// Creates an image which will be the result of various 
 		// image processing operations:
 		Color[][] imageOut;
-
+		
 		// Tests the horizontal flipping of an image:
+		imageOut =scaled(tinypic,3,5);
 		System.out.println();
-	
+		print(imageOut);
+
 		
 		//// Write here whatever code you need in order to test your work.
 		//// You can reuse / overide the contents of the imageOut array.
@@ -77,7 +79,7 @@ public class Runigram {
 		Color [][] flippedHorizontal = new Color[image.length][image[0].length];
 		for (int i = 0; i < flippedHorizontal.length; i++){
 			for (int j = 0; j < flippedHorizontal[0].length; j++){	
-				flippedHorizontal[i][j] = image [i][image[0].length-j];
+				flippedHorizontal[i][j] = image [i][image[0].length-j-1];
 			}
 		}
 		return flippedHorizontal;
@@ -102,7 +104,7 @@ public class Runigram {
 		double r = pixel.getRed() * 0.299;
 		double g = pixel.getGreen() * 0.587;
 		double b = pixel.getBlue() * 0.114;
-		int lum = (int) (r+g+b);
+		int lum = (int) (r + g + b);
 		Color luminace = new Color (lum,lum,lum);
 		return luminace;
 	}
@@ -168,7 +170,7 @@ public class Runigram {
 	public static Color[][] blend(Color[][] image1, Color[][] image2, double alpha) {
 		Color [][]  ImageBlend = new Color[image1.length][image1[0].length];
 		for (int i = 0; i <  image1.length; i++){
-			for (int j = 0; j <  image1[0].length; j++){	
+			for (int j = 0; j <  image1[0].length; j++){    
 				ImageBlend [i][j] =  blend(image1[i][j], image2[i][j], alpha);
 			}
 		}
@@ -187,9 +189,9 @@ public class Runigram {
 		{
 			target = scaled(target, source.length, source[0].length);
 		}
-		for (int i = 0; i < n; i++)
+		for (int i = 0; i <= n; i++)
 		{
-			double alpha = (double)((n - i) / (double)n);
+			double alpha = (double)((double)(n-i)/(double)n);
 			morph = blend (source, target, alpha);
 			Runigram.setCanvas(morph);
 			Runigram.display(morph);
