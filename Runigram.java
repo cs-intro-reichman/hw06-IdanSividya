@@ -147,7 +147,7 @@ public class Runigram {
 		Color [][]  Scaled = new Color[height][width];
 		for (int i = 0; i <  height; i++){
 			for (int j = 0; j <  width; j++){	
-				Scaled[i][j] =  image[(int)(i*(Height))][(int)(j*(Wi))];
+				Scaled[i][j] =  image[(int)(i*(Height))][(int)(j*(width))];
 			}
 		}
 		
