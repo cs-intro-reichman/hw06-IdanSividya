@@ -17,19 +17,32 @@ public class Runigram {
 		// image processing operations:
 		Color[][] imageOut;
 
-		 // Tests the horizontal flipping of an image:
-		 imageOut = flippedHorizontally(tinypic);
-		 System.out.println();
-		 print(imageOut);
-	
+		// // Tests the horizontal flipping of an image:
+		// imageOut = flippedHorizontally(tinypic);
+		// System.out.println();
+		// print(imageOut);
+		
+		// imageOut = flippedVertically(tinypic);
+		// System.out.println();
+		// print(imageOut);
+		
+		// imageOut =grayScaled(tinypic);
+		// System.out.println();
+		// print(imageOut);
 
 		imageOut =scaled(tinypic,3,5);
 		System.out.println();
 		print(imageOut);
 
-		
-		//// Write here whatever code you need in order to test your work.
-		//// You can reuse / overide the contents of the imageOut array.
+
+		// Color c2 = new Color(200,20,40);
+		// Color c1 = new Color(100,40,100);
+		// System.out.println(blend(c1, c2, 0.25));
+
+
+
+		// //// Write here whatever code you need in order to test your work.
+		// //// You can reuse / overide the contents of the imageOut array.
 	}
 
 	/** Returns a 2D array of Color values, representing the image data
@@ -43,14 +56,21 @@ public class Runigram {
 		in.readInt();
 		// Creates the image array
 		Color[][] image = new Color[numRows][numCols];
-		for (int i = 0; i < numRows; i++) {
-        	for (int j = 0; j < numCols; j++) {
-					int red = in.readInt();
-					int green = in.readInt();
-					int blue = in.readInt();
-					image[i][j] = new Color(red, green, blue);
-				}
-        	}
+		// Reads the RGB values from the file, into the image array. 
+		// For each pixel (i,j), reads 3 values from the file,
+		// creates from the 3 colors a new Color object, and 
+		// makes pixel (i,j) refer to that object.
+		for (int i=0; i<numRows;i++)
+		{
+			for(int j=0;j<numCols;j++)
+			{
+				int red=in.readInt();
+				int green=in.readInt();
+				int blue=in.readInt();
+				Color c = new Color(red, green, blue);
+				image[i][j]= c;
+			}
+		}
 		return image;
 	}
 
@@ -69,16 +89,16 @@ public class Runigram {
 	// For example, to check that some image processing function works correctly,
 	// we can apply the function and then use this function to print the resulting image.
 	private static void print(Color[][] image) {
-		for (int i = 0; i < image.length; i++){
-
-			for(int j = 0; j < image[0].length;j++){
-
-				print (image[i][j]);
+		for (int i=0; i<image.length;i++)
+		{
+			for(int j=0;j<image[0].length;j++)
+			{
+				print(image[i][j]);
 			}
 			System.out.println();
 		}
+
 	}
-	
 	
 	/**
 	 * Returns an image which is the horizontally flipped version of the given image. 
