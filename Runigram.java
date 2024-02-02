@@ -77,7 +77,9 @@ public class Runigram {
 			System.out.println();
 		}
 	}
-	
+
+
+	// linoy feedback: those are the same function .. use with one function and call her twice.
 	/**
 	 * Returns an image which is the horizontally flipped version of the given image. 
 	 */
